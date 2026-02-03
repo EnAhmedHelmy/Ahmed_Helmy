@@ -1,0 +1,19 @@
+namespace ConsoleApp1_c_
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter num:");
+            int num_1 = Convert.ToInt32(Console.ReadLine());
+            if (num_1 % 2 == 0)
+            {
+                Console.WriteLine("Your number is even.");
+            }
+            else
+            {
+                Console.WriteLine("Your number is odd");
+            }
+        }
+    }
+}
