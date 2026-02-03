@@ -1,0 +1,42 @@
+namespace ConsoleApp1_c_
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter num_1:");
+            int num_1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter operator:");
+            char mark = Console.ReadLine()[0];
+            Console.WriteLine("Enter num_2:");
+            int num_2 = Convert.ToInt32(Console.ReadLine());
+            if (mark == '+')
+            {
+                Console.WriteLine(" = " + (num_1+num_2));
+            }
+            else if (mark == '-')
+            {
+                Console.WriteLine(" = " + (num_1 - num_2));
+            }
+            else if (mark == '*')
+            {
+                Console.WriteLine(" = " + (num_1 * num_2));
+            }
+            else if (mark == '/')
+            {
+                if (num_2 > 0 || num_2 < 0)
+                {
+                    Console.WriteLine(" = " + (num_1 / num_2));
+                }
+                else if(num_2 == 0)
+                {
+                    Console.WriteLine(" div by 0 is wrong!! ");
+                }
+            }
+            else 
+            {
+                  Console.WriteLine("  invalid operation!! ");
+            }
+        }
+    }
+}
