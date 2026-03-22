@@ -1,0 +1,81 @@
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Metrics;
+
+namespace ConsoleApp1
+{
+    public class UserAccount
+    {
+        public string name;
+        private string _email;
+        private string _password;
+        public static int counter = 0;
+        public UserAccount()
+        {
+            counter++;
+        }
+        public string password
+        {
+            get { return _password; }
+            set
+            {
+                if (value.Length < 8)
+                {
+                    throw new ArgumentException("Password must be at least 8 characters long.");
+                }
+                _password = value;
+            }
+        }
+        public string email
+        {
+            get { return _email; }
+            set
+            {
+                if (!value.Contains("@"))
+                {
+                    throw new ArgumentException("Email must contain '@' symbol.");
+                }
+                _email = value;
+            }
+        }
+        public string change_password(string newPassword)
+        { 
+            password = newPassword;
+            return password;
+        }
+        public void testOldPassword(string oldPassword)
+        {
+            if (oldPassword == password)
+            {
+                Console.WriteLine("Old password is correct.");
+                Console.WriteLine("enter new password");
+                string new_password = Console.ReadLine();
+                change_password(new_password);
+            }
+            else
+            {
+                Console.WriteLine("Old password is incorrect.");
+            }
+        }
+    }
+    internal class Program
+    {
+     
+        static void Main()
+        {
+            var User1 = new UserAccount();
+            User1.name = "John Doe";
+            User1.email = "eng_maiheshamibrahim10@gmail.com";
+            User1.password = "12345678";
+            Console.WriteLine($"User Name: {User1.name}");
+            Console.WriteLine($"User Email: {User1.email}");
+            Console.WriteLine($"password: {User1.password}");
+            Console.WriteLine("Enter old password:");
+            string old_password = Console.ReadLine();
+            User1.testOldPassword (old_password);
+            Console.WriteLine($"New password: {User1.password}");
+            Console.WriteLine($"Total User Accounts: {UserAccount.counter}");
+        }
+    }
+}
