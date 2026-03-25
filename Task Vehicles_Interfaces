@@ -1,0 +1,43 @@
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.Metrics;
+using System.Security.Cryptography.X509Certificates;
+
+namespace ConsoleApp1
+{
+    public interface IFlyable
+    {
+        void Fly();
+    }
+    public abstract class Vehicles
+    {
+        public abstract void Drive();
+    }
+    public class Car : Vehicles
+    {
+        public override void Drive()
+        {
+            Console.WriteLine("The car is driving on the road.");
+        }
+    }
+    public class Plane : Vehicles, IFlyable
+    {
+        public override void Drive()
+        {
+            Console.WriteLine("The plane is driving on the runway.");
+        }
+        public void Fly()
+        {
+            Console.WriteLine("The plane is flying.");
+        }
+    }
+    internal class Program
+    {
+     
+        static void Main()
+        {
+          
+        }
+    }
+}
